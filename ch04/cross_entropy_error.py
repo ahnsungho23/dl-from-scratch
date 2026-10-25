@@ -14,3 +14,4 @@ if __name__ == '__main__':
     print(cross_entropy_error(np.array(y), np.array(t)))    #값이 0에 가까울수록 좋다.
 
 #손실함수의 첫번째 예시인 cross_entropy_error이다.
+
