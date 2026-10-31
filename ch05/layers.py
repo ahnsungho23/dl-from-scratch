@@ -17,7 +17,7 @@ class Relu:
 
     def backward(self, dout):
         dout[self.mask] = 0
-        dx = dout
+        dx = dout       #0일 때 반환값 0, 아니면 1
 
         return dx
 
@@ -31,7 +31,7 @@ class sigmoid:
         return out
 
     def backward(self, dout):
-        dx = dout * self.out * (1.0 - self.out)
+        dx = dout * self.out * (1.0 - self.out) #y(1-y)
         return dx
 
 class Affine:

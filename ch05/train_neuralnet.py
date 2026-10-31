@@ -3,6 +3,12 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import numpy as np
 from dataset.mnist import load_mnist
 from neuralnet import TwoLayerNet
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
+result_dir = os.path.join(os.path.dirname(__file__), '..', 'results')
+os.makedirs(result_dir, exist_ok=True)
 
 #데이터 읽기
 (x_train, t_train), (x_test, t_test) = load_mnist(normalize = True, one_hot_label = True)
@@ -40,3 +46,25 @@ for i in range(iters_num):
         train_acc_list.append(train_acc)
         test_acc_list.append(test_acc)
         print(train_acc, test_acc)
+
+
+# 1) 손실 곡선 (iteration 단위)
+plt.figure()
+plt.plot(np.arange(len(train_loss_list)), train_loss_list, label='train loss')
+plt.xlabel('iteration')
+plt.ylabel('loss')
+plt.legend()
+plt.savefig(os.path.join(result_dir, 'ch05_loss.png'), dpi=150, bbox_inches='tight')
+plt.close()
+
+# 2) train/test 정확도 (epoch 단위)
+epochs = np.arange(len(train_acc_list))
+plt.figure()
+plt.plot(epochs, train_acc_list, marker='o', label='train acc')
+plt.plot(epochs, test_acc_list, marker='s', linestyle='--', label='test acc')
+plt.xlabel('epoch')
+plt.ylabel('accuracy')
+plt.ylim(0, 1.0)
+plt.legend(loc='lower right')
+plt.savefig(os.path.join(result_dir, 'ch05_accuracy.png'), dpi=150, bbox_inches='tight')
+plt.close()
