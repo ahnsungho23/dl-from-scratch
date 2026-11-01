@@ -32,7 +32,6 @@ loss_fn = nn.CrossEntropyLoss()
 
 # ===== 재료 4: 옵티마이저 =====
 optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
-odict_keys(['net.0.weight', 'net.0.bias', 'net.2.weight', 'net.2.bias', 'net.4.weight', 'net.4.bias'])
 # ===== 학습 =====
 for epoch in range(5):
     total_loss = 0
