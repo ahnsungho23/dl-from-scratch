@@ -2,7 +2,7 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset, DataLoader
 
-# DemoDataset 클래스 (위에서 짠 거 복붙해도 됨)
+# DemoDataset 클래스
 class DemoDataset(Dataset):
     def __init__(self, obs, actions):
         self.obs = torch.from_numpy(obs).float()

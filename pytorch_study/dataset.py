@@ -99,9 +99,3 @@ print(len(ds))                    # 1000이 나와야 함
 s, a = ds[0]
 print(s)
 print(s.shape, a.shape, s.dtype)  # torch.Size([10]) torch.Size([7]) torch.float32
-
-
-# DataLoader를 이용한 배치 처리
-train_dataloader = DataLoader(training_data, batch_size = 64, shuffle = True)
-test_dataloader = DataLoader(test_data, batch_size = 64, shuffle = False)
-
