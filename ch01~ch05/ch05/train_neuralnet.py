@@ -7,7 +7,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-result_dir = os.path.join(os.path.dirname(__file__), '..', 'results')
+result_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'results')
 os.makedirs(result_dir, exist_ok=True)
 
 #데이터 읽기
